@@ -8,6 +8,12 @@ import entity.Course;
 import entity.MenuNodeValue;
 import entity.Student;
 
+/**
+ * 
+ * @author DU QIU
+ *
+ */
+
 public class MenuManager {
 	
 	private final int GO_BACK=0;
@@ -15,14 +21,15 @@ public class MenuManager {
 	private MenuNodeValue currentMenuItem;
 	private static CourseManager courseManager = new CourseManager();
 	private static StudentManager studentManager = new StudentManager();
+	private static PrinterManager printerManager = new PrinterManager();
 	
 	public void displayMenu() {
 		System.out.println("****************************");
 		System.out.println("* Welcome to SCRAME system *");
 		System.out.println("****************************");
-		Scanner s = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		int choice;
-		MenuNodeValue rootItem=MenuNodeValue.APP_ROOT;
+		MenuNodeValue rootItem = MenuNodeValue.APP_ROOT;
 		currentMenuItem = rootItem;
 		ArrayList<MenuNodeValue> childrenList=new ArrayList<MenuNodeValue>();
 		
@@ -37,7 +44,7 @@ public class MenuManager {
 			System.out.println("Enter your choice:");
 			
 			try{
-				choice=s.nextInt();
+				choice=sc.nextInt();
 				
 				// check the validity of the choice
 				if (choice>childrenList.size() || choice<GO_BACK_TO_ROOT)
@@ -58,7 +65,7 @@ public class MenuManager {
 				}
 			}catch(InputMismatchException e){
 				System.out.println("Invalid Choice!");
-				s.nextLine();
+				sc.nextLine();
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
@@ -79,7 +86,19 @@ public class MenuManager {
 			break;
 		case COURSE_ADD: addCourse();
 			break;
-		case COURSE_EDIT: editCourse();
+		case COURSE_REGISTER:
+			break;
+		case COURSE_CHECK_VACANCY:
+			break;
+		case COURSE_PRINTLIST:
+			break;
+		case COURSE_ENTER_WEIGHTAGE:
+			break;
+		case COURSE_ENTER_COURSEWORK_MARK:
+			break;
+		case COURSE_ENTER_EXAM_MARK:
+			break;
+		case COURSE_SHOW_STATISTICS: showCourseStatistics();
 			break;
 		case COURSE_ADD_SESSION: addSession();
 			break;
@@ -87,7 +106,7 @@ public class MenuManager {
 			break;
 		case STUDENT_ADD: addStudent();
 			break;
-		case STUDENT_LIST: listStudent();
+		case STUDENT_LIST: printStudentList();
 			break;
 		case STUDENT_CHECKCOURSE: checkRegisteredCourse();
 			break;
@@ -102,6 +121,11 @@ public class MenuManager {
 		return true;
 	}
 
+	private void showCourseStatistics() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void printStudentTranscript() {
 		// TODO Auto-generated method stub
 		
@@ -112,17 +136,36 @@ public class MenuManager {
 		
 	}
 
-	private void listStudent() {
-		System.out.println("Student Listing:");
-		ArrayList<Student> student=studentManager.getStudents();
-		if (student.size()==0){
-			System.out.println("No student currently");
+	private void printStudentList() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Print Student List By:");
+		System.out.println("1. Lecture Session");
+		System.out.println("2. Tutorial Session");
+		System.out.println("3. Laboratory Session");
+		int choice = 0;
+		try{
+			choice = sc.nextInt();
+			if (choice<=0&&choice>=4) 
+				throw new Exception("Invalid Option");
+		}catch(InputMismatchException e){
+			e.getMessage();
+			sc.nextLine();
+		}catch(Exception e){
+			e.getMessage();
 		}
-		else{
-			for (Student s:student){
-				System.out.println(s.getMatricNo()+" "+s.getName());
-			}
+		
+		String type;
+		
+		switch(choice){
+		case 1: type = "Lecture";
+			break;
+		case 2: type = "Tutorial";
+			break;
+		case 3: type = "Laboratory";
+			break;
+		case 4: System.out.println("Invalid Option");
 		}
+		printerManager.printStudentListBy();
 	}
 
 
@@ -132,10 +175,10 @@ public class MenuManager {
 		String name=s.nextLine();
 		if (studentManager.addStudent(name)){
 			studentManager.storeStudent();
-			System.out.println("Course " + name + " is added successfully");
+			System.out.println("Student " + name + " is added successfully");
 		}
 		else{
-			System.out.println("Fail to add course " + name);
+			System.out.println("Fail to add student " + name);
 		}
 	}
 
@@ -149,20 +192,6 @@ public class MenuManager {
 		courseManager.addSessionToCurrentCourse(type, groupId);
 		System.out.println("Session added");
 	}
-
-
-	private void editCourse() {
-		System.out.println("Enter a course code:");
-		Scanner sc=new Scanner(System.in);
-		String courseCode=sc.nextLine();
-		if (courseManager.setCurrentCourse(courseCode)){
-			System.out.println("Editing course " + courseCode);
-		}
-		else{
-			System.out.println("The course code is not found");
-		}
-	}
-
 
 	private void listCourse() {
 		System.out.println("Course Listing:");

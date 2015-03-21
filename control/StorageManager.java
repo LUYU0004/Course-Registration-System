@@ -7,17 +7,17 @@ public class StorageManager {
 	private SystemConfig config;
 	
 	public StorageManager(SystemConfig sysc){
-		config=sysc;
-		storageMethod=StorageMethodFactory.createStorageMethod(config);
+		config = sysc;
+		storageMethod = StorageMethodFactory.createStorageMethod(config);
 	}
 	
 	public void store(String fileNameKey,List ls){
-		String fileName=config.get(fileNameKey);
+		String fileName = config.get(fileNameKey);
 		storageMethod.writeList(fileName, ls);
 	}
 	
 	public List read(String fileNameKey){
-		String fileName=config.get(fileNameKey);
+		String fileName = config.get(fileNameKey);
 		return storageMethod.readList(fileName);
 	}
 }

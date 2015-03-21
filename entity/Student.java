@@ -1,7 +1,12 @@
 package entity;
 
+import java.io.PrintStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+
+import control.StudentManager;
+import control.StudentManager;
 
 /**
  * 
@@ -25,11 +30,29 @@ public class Student implements Serializable{
 	}
 	
 	/**
-	 * to generate a random but unique id for student
+	 * to generate a unique id for student
 	 * @return
 	 */
 	public String generateMatricNo(){
-		return "G0000";
+		
+		Calendar cd = Calendar.getInstance();
+		int year = cd.get(Calendar.YEAR)%100;
+		
+		StudentManager sm = new StudentManager();
+		int num = sm.getStudents().size();
+		
+		char start = (char)85;
+		char end = (char)65;
+		
+		if(num/100000!=0){
+			if(num/100000<(90-65))
+				end = (char)(65+num/100000);
+		}
+		
+		int index = num % 100000;
+		String result;
+		result = String.format("%c%2d%05d%c", start,year,index,end);
+		return  result;
 	}
 
 	public String getName() {

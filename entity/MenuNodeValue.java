@@ -7,11 +7,13 @@ public enum MenuNodeValue {
 	COURSE_ROOT(1,APP_ROOT,"Course Module Main Menu"),
 	STUDENT_ROOT(1,APP_ROOT,"Student Module Main Menu"),
 	EXIT(1,APP_ROOT,"Exit"),
+	
 	STUDENT_LIST(2,STUDENT_ROOT,"List Student"),
 	STUDENT_ADD(2,STUDENT_ROOT,"Add Student"),
 	STUDENT_EDIT(2,STUDENT_ROOT,"Edit Student"),
 	STUDENT_TRANSCRIPT(3,STUDENT_EDIT,"Print Student Transcript"),
 	STUDENT_CHECKCOURSE(3,STUDENT_EDIT,"Check course registered"),
+	
 	COURSE_LIST(2,COURSE_ROOT,"List courses"),
 	COURSE_ADD(2,COURSE_ROOT,"Add a new course"),
 	COURSE_EDIT(2,COURSE_ROOT,"Edit a course"),
@@ -19,7 +21,8 @@ public enum MenuNodeValue {
 	COURSE_CHECK_VACANCY(2,COURSE_EDIT,"Check vacancy"),
 	COURSE_PRINTLIST(2,COURSE_EDIT,"Print student list"),
 	COURSE_ENTER_WEIGHTAGE(2,COURSE_EDIT,"Enter assessment weightage"),
-	COURSE_ENTER_MARK(2,COURSE_EDIT,"Enter mark for students"),
+	COURSE_ENTER_COURSEWORK_MARK(2,COURSE_EDIT,"Enter course work mark for students"),
+	COURSE_ENTER_EXAM_MARK(2,COURSE_EDIT,"Enter exam mark for students"),
 	COURSE_SHOW_STATISTICS(2,COURSE_EDIT,"Show course statistics"),
 	COURSE_ADD_SESSION(2,COURSE_EDIT,"Add session"),
 	COURSE_LIST_SESSION(2,COURSE_EDIT,"List sessions"),

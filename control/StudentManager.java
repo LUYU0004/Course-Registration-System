@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import entity.Student;
 
+/**
+ * 
+ * @author DU QIU
+ *
+ */
 public class StudentManager {
 	private ArrayList<Student> students;
 	private Student currentStudent;
