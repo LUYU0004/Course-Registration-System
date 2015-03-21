@@ -1,4 +1,4 @@
-package boundary;
+package entity;
 
 import java.util.ArrayList;
 
@@ -6,11 +6,11 @@ public enum MenuNodeValue {
 	APP_ROOT(0,"Main Menu"),
 	COURSE_ROOT(1,APP_ROOT,"Course Module Main Menu"),
 	STUDENT_ROOT(1,APP_ROOT,"Student Module Main Menu"),
-	SAVE_EXIT(1,APP_ROOT,"Save and exit"),
+	EXIT(1,APP_ROOT,"Exit"),
 	STUDENT_LIST(2,STUDENT_ROOT,"List Student"),
 	STUDENT_ADD(2,STUDENT_ROOT,"Add Student"),
 	STUDENT_EDIT(2,STUDENT_ROOT,"Edit Student"),
-	STUDENT_TRANSCRIPT(3,STUDENT_EDIT,"View Student Transcript"),
+	STUDENT_TRANSCRIPT(3,STUDENT_EDIT,"Print Student Transcript"),
 	STUDENT_CHECKCOURSE(3,STUDENT_EDIT,"Check course registered"),
 	COURSE_LIST(2,COURSE_ROOT,"List courses"),
 	COURSE_ADD(2,COURSE_ROOT,"Add a new course"),

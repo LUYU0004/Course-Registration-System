@@ -32,7 +32,7 @@ public class CourseManager {
 		return courses;
 	}
 	
-	public boolean addCourse(String newCourseCode){
+	public boolean addCourse(String newCourseCode, String newCourseName){
 		for (Course c:courses){
 			if (c.getCode().equals(newCourseCode)){
 				// already added
@@ -40,7 +40,7 @@ public class CourseManager {
 			}
 		}
 		// not added , now add it
-		courses.add(new Course(newCourseCode));
+		courses.add(new Course(newCourseCode, newCourseName));
 		return true;
 	}
 	

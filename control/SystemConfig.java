@@ -14,6 +14,8 @@ public class SystemConfig {
 	
 	public SystemConfig(){
 		configs.put("StorageMethod", "Serialize");
-		configs.put("Course", "D:\\course.txt");
+		configs.put("Course", "Course.txt");
+		configs.put("Student", "Student.txt");
+		configs.put("Enroll", "Enroll.txt");
 	}
 }

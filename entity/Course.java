@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Course implements Serializable {
 	private String code;
+	private String name;
 	private ArrayList<Index> indices;
 	private ArrayList<Session> sessions;
 	private ArrayList<Assessment> assessments;
@@ -15,13 +16,13 @@ public class Course implements Serializable {
 		assessments=new ArrayList<Assessment>();
 	}
 	
-	public Course(String c){
+	public Course(String c,String n){
 		code=c;
-		
+		name=n;
 	}
 	
 	public String toString(){
-		return code;
+		return code+" "+name;
 	}
 	
 	public String getCode(){
@@ -56,6 +57,4 @@ public class Course implements Serializable {
 	public void setAssessments(ArrayList<Assessment> assessments) {
 		this.assessments = assessments;
 	}
-	
-	
 }
