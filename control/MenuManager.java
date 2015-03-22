@@ -86,17 +86,17 @@ public class MenuManager {
 			break;
 		case COURSE_ADD: addCourse();
 			break;
-		case COURSE_REGISTER:
+		case COURSE_REGISTER: registerCourse();
 			break;
-		case COURSE_CHECK_VACANCY:
+		case COURSE_CHECK_VACANCY: checkCourseVacancy();
 			break;
-		case COURSE_PRINTLIST:
+		case COURSE_PRINTLIST: printCourseList();
 			break;
-		case COURSE_ENTER_WEIGHTAGE:
+		case COURSE_ENTER_WEIGHTAGE: enterAssignmentWeightage();
 			break;
-		case COURSE_ENTER_COURSEWORK_MARK:
+		case COURSE_ENTER_COURSEWORK_MARK: enterCourseworkMark();
 			break;
-		case COURSE_ENTER_EXAM_MARK:
+		case COURSE_ENTER_EXAM_MARK: enterExamMark();
 			break;
 		case COURSE_SHOW_STATISTICS: showCourseStatistics();
 			break;
@@ -119,6 +119,36 @@ public class MenuManager {
 		}
 		
 		return true;
+	}
+
+	private void enterExamMark() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void enterCourseworkMark() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void enterAssignmentWeightage() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void printCourseList() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void checkCourseVacancy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void registerCourse() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void showCourseStatistics() {

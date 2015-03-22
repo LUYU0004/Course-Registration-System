@@ -17,8 +17,8 @@ public class Course implements Serializable {
 	}
 	
 	public Course(String c,String n){
-		code=c;
-		name=n;
+		code=c.toUpperCase();
+		name=n.toUpperCase();
 	}
 	
 	public String toString(){
